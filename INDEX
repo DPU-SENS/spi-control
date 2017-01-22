@@ -1,0 +1,10 @@
+spi-control >> Low level I/O functions
+SPI
+  spi
+  @octave_spi/fopen
+  @octave_spi/fclose
+  spi_addr
+  spi_read
+  spi_write
+  spi_close
+

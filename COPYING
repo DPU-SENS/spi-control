@@ -1,0 +1,9 @@
+inst/@octave_spi/fclose.m           GPLv3+
+inst/@octave_spi/fopen.m            GPLv3+
+src/spi/spi_addr.cc                 GPLv3+
+src/spi/spi.cc                      GPLv3+
+src/spi/spi_class.cc                GPLv3+
+src/spi/spi_class.h                 GPLv3+
+src/spi/spi_close.cc                GPLv3+
+src/spi/spi_read.cc                 GPLv3+
+src/spi/spi_write.cc                GPLv3+

@@ -1,0 +1,11 @@
+Name: spi-control
+Version: 0.6.0
+Date: 2016-10-3
+Author: Abe Burleigh <ktrout.ab@gmail.com>
+Maintainer: Abe Burleigh <ktrout.ab@gmail.com>
+Title: SPI Control
+Description: Low level I/O functions for spi interfaces.
+Categories: spi-control
+Depends: octave (>= 3.2.0)
+Autoload: no
+License: GPLv3+

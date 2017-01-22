@@ -1,0 +1,2 @@
+/* build SERIAL interface functions */
+#undef BUILD_SERIAL

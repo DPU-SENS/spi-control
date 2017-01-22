@@ -1,0 +1,22 @@
+OCT := spi.oct spi_close.oct spi_addr.oct spi_write.oct spi_read.oct
+OBJ := spi_class.o
+
+MKOCTFILE ?= mkoctfile -g
+
+CFLAGS     = @DEFS@
+
+all: $(OBJ) $(OCT)
+
+%.o: %.cc
+	$(MKOCTFILE) $(CFLAGS) $(CXXFLAGS) -c $^
+
+%.oct: %.o $(OBJ)
+	$(MKOCTFILE) $^ -o ../$@
+
+clean:
+	rm -f *.oct *.o
+
+distclean: clean
+	rm Makefile
+
+.PHONY: all clean
