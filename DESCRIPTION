@@ -1,6 +1,6 @@
 Name: spi-control
-Version: 0.6.0
-Date: 2016-10-3
+Version: 1.0.0
+Date: 2017-1-22
 Author: Abe Burleigh <ktrout.ab@gmail.com>
 Maintainer: Abe Burleigh <ktrout.ab@gmail.com>
 Title: SPI Control

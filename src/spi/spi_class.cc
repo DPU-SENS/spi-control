@@ -47,7 +47,7 @@ DEFINE_OCTAVE_ALLOCATOR (octave_spi);
 DEFINE_OV_TYPEID_FUNCTIONS_AND_DATA (octave_spi, "octave_spi", "octave_spi");
 
 // Setting to 0 will suppress printf statements
-static int debug = 1;
+static int debug = 0;
 
 octave_spi::octave_spi()
 {
