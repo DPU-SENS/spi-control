@@ -31,7 +31,7 @@ SPI_CLK = 250000000/[2*(x+1)] where x is an integer
 ** note ** I haven’t tested entering incorrect strings very extensively, so typing crazy things may result in a crash
 
 spi_write(spi interface, uint8* data) -
-writes data (buffer up to 32 bytes) to specified spi device and returns the response overwritten onto data.
+writes data (buffer up to 32 bytes) to specified spi device and returns the number of bytes written and response buffer.
 
 spi_close() - 
 closes specified spi device.

@@ -38,7 +38,7 @@ Write data to a spi slave device.\n \
 @var{spi} - instance of @var{octave_spi} class.@*\
 @var{data} - data, of type uint8, to be written to the slave device.\n \
 \n\
-Upon successful completion, spi_write() shall return the number of bytes written as the result @var{n}.\n \
+Upon successful completion, spi_write() shall return the number of bytes written and a buffer containing the returned data @var{n}.\n \
 @end deftypefn")
 {
     if (!type_loaded) {
@@ -52,6 +52,7 @@ Upon successful completion, spi_write() shall return the number of bytes written
     octave_spi* spi = NULL;
     int retval;
     const octave_base_value& rep = args(0).get_rep();
+    octave_value_list return_list;
     spi = &((octave_spi &)rep);
     if (args(1).is_uint8_type ()) {
         NDArray data = args(1).array_value();
@@ -61,14 +62,18 @@ Upon successful completion, spi_write() shall return the number of bytes written
             error("spi_write: cannot allocate requested memory: %s\n", strerror(errno));
             return octave_value(-1);  
         }
-        for (int i = 0; i < data.length(); i++)
-            buf[i] =  static_cast<uint8_t>(data(i));
+        for (int i = 0; i < data.length(); i++) buf[i] = static_cast<uint8_t>(data(i));
         retval = spi->write(buf, data.length());
+        // copy data to return buffer
+        uint8NDArray rdata(dim_vector(1, retval));
+        for (int i = 0; i < retval; i++) rdata(i) = buf[i];
+        return_list(0) = rdata;
+        return_list(1) = retval;
         delete[] buf;
     } else {
         error("buffer not uint8_t\n");
         print_usage();
         return octave_value(-1);
     }
-    return octave_value(retval);
+    return return_list;
 }
